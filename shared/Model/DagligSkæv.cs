@@ -22,8 +22,8 @@ public class DagligSkæv : Ordination {
 	}
 
 	public override double doegnDosis() {
-		// TODO: Implement!
-		double doegnDosis = 0;
+        // LAVET!!
+        double doegnDosis = 0;
 		foreach (var dosis in doser)
 		{
 			doegnDosis += dosis.antal;

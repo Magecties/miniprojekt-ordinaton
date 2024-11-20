@@ -29,7 +29,7 @@ public class PN : Ordination {
     }
 
     public override double doegnDosis() {
-        // TODO: Implement!
+        // LAVET!!
         double doegnDosis = 0;
 
         var difference = slutDen - startDen;

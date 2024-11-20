@@ -24,8 +24,8 @@ public class DagligFast : Ordination {
 	}
 
 	public override double doegnDosis() {
-		// TODO: Implement!
-		double doegnDosis = MorgenDosis.antal+MiddagDosis.antal+AftenDosis.antal+NatDosis.antal;
+        // LAVET!!
+        double doegnDosis = MorgenDosis.antal+MiddagDosis.antal+AftenDosis.antal+NatDosis.antal;
 
         return doegnDosis;
 	}
