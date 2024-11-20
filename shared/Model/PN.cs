@@ -17,13 +17,27 @@ public class PN : Ordination {
     /// Returner false ellers og datoen givesDen ignoreres
     /// </summary>
     public bool givDosis(Dato givesDen) {
-        // TODO: Implement!
+        // TODO: Implement! 
+        if (givesDen != null)
+        {
+            antalEnheder++;
+            dates.Add(givesDen);
+            return true;
+        }
         return false;
+        
     }
 
     public override double doegnDosis() {
-    	// TODO: Implement!
-        return -1;
+        // TODO: Implement!
+        double doegnDosis = 0;
+
+        var difference = slutDen - startDen;
+
+        double antalDageGivet = difference.TotalDays;
+
+        doegnDosis = dates.Count * antalEnheder / antalDageGivet;
+        return doegnDosis;
     }
 
 

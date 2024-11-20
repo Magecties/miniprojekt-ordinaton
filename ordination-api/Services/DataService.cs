@@ -132,7 +132,16 @@ public class DataService
 
     public PN OpretPN(int patientId, int laegemiddelId, double antal, DateTime startDato, DateTime slutDato) {
         // TODO: Implement!
-        return null!;
+        var laegemiddel = db.Laegemiddler.Find(laegemiddelId);
+        
+        var PN = new PN(startDato, slutDato,antal,laegemiddel);
+
+        db.Patienter.Find(patientId).ordinationer.Add(PN);
+
+        db.Ordinationer.Add(PN);
+        db.SaveChanges();
+
+        return PN;
     }
 
     public DagligFast OpretDagligFast(int patientId, int laegemiddelId, 
