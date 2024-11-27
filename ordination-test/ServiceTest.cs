@@ -44,11 +44,14 @@ public class ServiceTest
     [TestMethod]
     public void OpretDagligfastNegativeDage()
     {
+        // Arrange
         Patient patient = service.GetPatienter().First();
         Laegemiddel lm = service.GetLaegemidler().First();
-        var exception = new ArgumentOutOfRangeException();
-        var assertion = service.OpretDagligFast(patient.PatientId, lm.LaegemiddelId, 0, -3, 0, 0, DateTime.Now, DateTime.Now);
-        Assert.ThrowsException(assertion,exception);
+
+        // Act & Assert
+        Assert.ThrowsException<ArgumentOutOfRangeException>(() =>
+            service.OpretDagligFast(patient.PatientId, lm.LaegemiddelId, 0, -3, 0, 0, DateTime.Now, DateTime.Now)
+        );
     }
 
 
