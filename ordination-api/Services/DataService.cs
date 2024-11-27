@@ -136,6 +136,10 @@ public class DataService
         var patient = db.Patienter.Find(patientId);
         var PN = new PN(startDato, slutDato,antal,laegemiddel);
 
+        if (patient == null || laegemiddel == null)
+        {
+            throw new ArgumentNullException();
+        }
 
         patient.ordinationer.Add(PN);
         db.Ordinationer.Add(PN);

@@ -30,14 +30,23 @@ public class PN : Ordination {
 
     public override double doegnDosis() {
         // LAVET!!
-        double doegnDosis = 0;
+        DateTime min = dates.First().dato.Date;
+        DateTime max = dates.First().dato.Date;
+        foreach (var date in dates)
+        {
+            if (date.dato.Date < min)
+            {
+                min = date.dato.Date;
+            }
+            if (date.dato.Date > max)
+            {
+                max = date.dato.Date;
+            }
+        }
+        var difference = max - min;
 
-        var difference = slutDen - startDen;
+        return difference.TotalDays + 1;
 
-        double antalDageGivet = difference.TotalDays;
-
-        doegnDosis = dates.Count * antalEnheder / antalDageGivet;
-        return doegnDosis;
     }
 
 
