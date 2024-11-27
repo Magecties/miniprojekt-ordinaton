@@ -28,6 +28,11 @@ public class DagligSkæv : Ordination {
 		{
 			doegnDosis += dosis.antal;
 		}
+		if (doegnDosis < 0)
+		{
+			doegnDosis *= -1;
+		}
+
         return doegnDosis;
 	}
 

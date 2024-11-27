@@ -21,8 +21,9 @@ public abstract class Ordination {
     /// Antal hele dage mellem startdato og slutdato. Begge dage inklusive.
     /// </summary>
     public int antalDage() {
-        // TODO: Implement!
-        return -1;
+        // LAVET !!
+        var result = slutDen.Day - startDen.Day;
+        return result;
     }
 
     public override String ToString() {

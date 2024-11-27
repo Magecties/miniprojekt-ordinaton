@@ -1,3 +1,5 @@
+using System.Reflection.Metadata.Ecma335;
+
 namespace shared.Model;
 
 public class PN : Ordination {
@@ -30,22 +32,30 @@ public class PN : Ordination {
 
     public override double doegnDosis() {
         // LAVET!!
-        DateTime min = dates.First().dato.Date;
-        DateTime max = dates.First().dato.Date;
-        foreach (var date in dates)
+        double result = 0;
+        if (dates.Count() > 0)
         {
-            if (date.dato.Date < min)
-            {
-                min = date.dato.Date;
-            }
-            if (date.dato.Date > max)
-            {
-                max = date.dato.Date;
-            }
-        }
-        var difference = max - min;
 
-        return difference.TotalDays + 1;
+
+            DateTime min = dates.First().dato.Date;
+            DateTime max = dates.First().dato.Date;
+            foreach (var date in dates)
+            {
+                if (date.dato.Date < min)
+                {
+                    min = date.dato.Date;
+                }
+                if (date.dato.Date > max)
+                {
+                    max = date.dato.Date;
+                }
+            }
+            var difference = (max - min).Days + 1;
+
+             result = samletDosis() / difference; 
+
+        }
+        return result;
 
     }
 
