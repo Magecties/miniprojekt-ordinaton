@@ -152,8 +152,11 @@ public class DataService
     public DagligFast OpretDagligFast(int patientId, int laegemiddelId, 
         double antalMorgen, double antalMiddag, double antalAften, double antalNat, 
         DateTime startDato, DateTime slutDato) {
-
         // LAVET!!
+        if (antalAften < 0 || antalMorgen < 0 || antalMiddag < 0 || antalNat < 0)
+        {
+            throw new ArgumentOutOfRangeException();
+        }
         var laegemiddel = db.Laegemiddler.Find(laegemiddelId);
         var patient = db.Patienter.Find(patientId);
         var DagligFast = new DagligFast(startDato, slutDato, laegemiddel, antalMorgen,antalMiddag,antalAften,antalNat);
